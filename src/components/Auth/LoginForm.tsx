@@ -57,9 +57,25 @@ const LoginForm: React.FC = () => {
            backgroundSize: 'cover',
            backgroundPosition: 'center',
            backgroundRepeat: 'no-repeat',
-           backgroundColor: 'rgba(147, 51, 234, 0.05)',
-           filter: 'blur(3px)'
+           backgroundColor: 'rgba(147, 51, 234, 0.05)'
          }}>
+      
+      {/* Blurred background layer */}
+      <div 
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: 'url("/v953-mynt-59.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          filter: 'blur(3px)',
+          zIndex: 0
+        }}
+      />
       
       <div className="relative z-10 max-w-md w-full space-y-8">
         <div className="flex justify-center mb-8">
