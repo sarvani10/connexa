@@ -51,24 +51,31 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+      </div>
+      
+      <div className="relative z-10 max-w-md w-full space-y-8">
         <div className="flex justify-center mb-8">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg ring-2 ring-purple-500/20">
               <Users className="w-7 h-7 text-white" />
             </div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Connexa
             </h1>
           </div>
         </div>
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-purple-100 p-8">
-          <h2 className="mt-6 text-center text-2xl font-semibold text-purple-800 mb-2">
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl border border-white/20 p-8">
+          <h2 className="mt-6 text-center text-2xl font-semibold text-white mb-2">
             {isRegister ? 'Create your Connexa account' : 'Sign in to Connexa'}
           </h2>
-          <p className="text-center text-sm text-purple-600 mb-8">
-            {isRegister ? 'Join our community and start connecting' : 'Welcome back! Please sign in to continue'}
+          <p className="text-center text-sm text-purple-200 mb-8">
+            {isRegister ? 'Join our thriving community and start connecting with others' : 'Welcome back! We\'re glad to see you again'}
           </p>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
@@ -81,7 +88,7 @@ const LoginForm: React.FC = () => {
             {!isRegister && (
               <>
                 <div className="group">
-                  <label htmlFor="email" className="block text-sm font-medium text-purple-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-purple-200 mb-2">
                     Email address
                   </label>
                   <div className="relative">
@@ -92,7 +99,7 @@ const LoginForm: React.FC = () => {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg shadow-sm placeholder-purple-400 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-white/40 transition-all duration-200 group-hover:border-white/30 backdrop-blur-sm"
                       placeholder="Enter your email"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -104,7 +111,7 @@ const LoginForm: React.FC = () => {
                 </div>
 
                 <div className="group">
-                  <label htmlFor="password" className="block text-sm font-medium text-purple-700 mb-2">
+                  <label htmlFor="password" className="block text-sm font-medium text-purple-200 mb-2">
                     Password
                   </label>
                   <div className="relative">
@@ -115,7 +122,7 @@ const LoginForm: React.FC = () => {
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg shadow-sm placeholder-purple-400 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-white/40 transition-all duration-200 group-hover:border-white/30 backdrop-blur-sm"
                       placeholder="Enter your password"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -131,7 +138,7 @@ const LoginForm: React.FC = () => {
             {isRegister && (
               <>
                 <div className="group">
-                  <label htmlFor="fullName" className="block text-sm font-medium text-purple-700 mb-2">
+                  <label htmlFor="fullName" className="block text-sm font-medium text-purple-200 mb-2">
                     Full Name
                   </label>
                   <div className="relative">
@@ -142,7 +149,7 @@ const LoginForm: React.FC = () => {
                       required
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg shadow-sm placeholder-purple-400 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-white/40 transition-all duration-200 group-hover:border-white/30 backdrop-blur-sm"
                       placeholder="Enter your full name"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -154,7 +161,7 @@ const LoginForm: React.FC = () => {
                 </div>
 
                 <div className="group">
-                  <label htmlFor="username" className="block text-sm font-medium text-purple-700 mb-2">
+                  <label htmlFor="username" className="block text-sm font-medium text-purple-200 mb-2">
                     Username
                   </label>
                   <div className="relative">
@@ -165,7 +172,7 @@ const LoginForm: React.FC = () => {
                       required
                       value={formData.username}
                       onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg shadow-sm placeholder-purple-400 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-white/40 transition-all duration-200 group-hover:border-white/30 backdrop-blur-sm"
                       placeholder="Choose a username"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -177,7 +184,7 @@ const LoginForm: React.FC = () => {
                 </div>
 
                 <div className="group">
-                  <label htmlFor="email" className="block text-sm font-medium text-purple-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-purple-200 mb-2">
                     Email address
                   </label>
                   <div className="relative">
@@ -188,7 +195,7 @@ const LoginForm: React.FC = () => {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg shadow-sm placeholder-purple-400 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-white/40 transition-all duration-200 group-hover:border-white/30 backdrop-blur-sm"
                       placeholder="Enter your email"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -200,7 +207,7 @@ const LoginForm: React.FC = () => {
                 </div>
 
                 <div className="group">
-                  <label htmlFor="password" className="block text-sm font-medium text-purple-700 mb-2">
+                  <label htmlFor="password" className="block text-sm font-medium text-purple-200 mb-2">
                     Password
                   </label>
                   <div className="relative">
@@ -211,7 +218,7 @@ const LoginForm: React.FC = () => {
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
+                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg shadow-sm placeholder-purple-400 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-white/40 transition-all duration-200 group-hover:border-white/30 backdrop-blur-sm"
                       placeholder="Create a password"
                     />
                     <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -229,7 +236,7 @@ const LoginForm: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-lg text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-lg text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg"
             >
               {isLoading ? (
                 <div className="flex items-center">
@@ -249,10 +256,10 @@ const LoginForm: React.FC = () => {
             <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-purple-200"></div>
+                  <div className="w-full border-t border-white/20"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-white/80 backdrop-blur-sm text-purple-500 font-medium">Or continue with</span>
+                  <span className="px-4 bg-white/10 backdrop-blur-sm text-purple-300 font-medium">Or continue with</span>
                 </div>
               </div>
 
@@ -260,7 +267,7 @@ const LoginForm: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleGoogleSignIn}
-                  className="group relative w-full flex items-center justify-center px-4 py-3 border border-purple-300 rounded-lg shadow-sm text-sm font-medium text-purple-700 bg-white/80 backdrop-blur-sm hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+                  className="group relative w-full flex items-center justify-center px-4 py-3 border border-white/20 rounded-lg shadow-sm text-sm font-medium text-purple-200 bg-white/10 backdrop-blur-sm hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-400 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -268,7 +275,7 @@ const LoginForm: React.FC = () => {
                     <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                     <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                   </svg>
-                  <span className="font-medium">Continue with Google</span>
+                  <span className="font-medium text-purple-200">Continue with Google</span>
                 </button>
               </div>
             </div>
@@ -278,7 +285,7 @@ const LoginForm: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsRegister(!isRegister)}
-              className="text-purple-600 hover:text-purple-500 font-medium transition duration-200 hover:underline"
+              className="text-purple-300 hover:text-purple-200 font-medium transition duration-200 hover:underline"
             >
               {isRegister ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
             </button>

@@ -26,9 +26,40 @@
       "username": "mike_wilson",
       "createdAt": "2024-01-17T09:15:00.000Z",
       "isPrivate": false
+    },
+    {
+      "id": "4e0f386e-8e8d-41df-ac50-963485857197",
+      "email": "gogireddysarvani@gmail.com",
+      "password": "123456",
+      "fullName": "SARVANI GOGIREDDY",
+      "username": "sarvanii",
+      "createdAt": "2026-02-14T13:07:25.210Z",
+      "isPrivate": false
     }
   ],
   "posts": [
+    {
+      "id": "3fed5741-1f24-4aa0-8b89-6c8450fa56f5",
+      "authorId": "4e0f386e-8e8d-41df-ac50-963485857197",
+      "content": "hello",
+      "mediaType": "text",
+      "mediaUrl": "",
+      "createdAt": "2026-02-14T13:09:42.119Z",
+      "likesCount": 0,
+      "commentsCount": 0,
+      "isAnonymous": false
+    },
+    {
+      "id": "0c087d54-a893-42f6-b89c-b5040078a250",
+      "authorId": "4e0f386e-8e8d-41df-ac50-963485857197",
+      "content": "Hello, What are you doing. I feel bored!",
+      "mediaType": "text",
+      "mediaUrl": "",
+      "createdAt": "2026-02-14T13:07:57.555Z",
+      "likesCount": 0,
+      "commentsCount": 0,
+      "isAnonymous": true
+    },
     {
       "id": "213203a5-92d2-408d-8ce2-3bfb620f028e",
       "authorId": "1771064469927",

@@ -100,6 +100,18 @@ const ModernHome: React.FC<ModernHomeProps> = ({ showCreateModal = false, setSho
       )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        {/* Welcome Message */}
+        {user && (
+          <div className="mb-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-6 text-white shadow-lg">
+            <h1 className="text-2xl font-bold mb-2">
+              Hello {user.fullName || user.username}! 👋
+            </h1>
+            <p className="text-purple-100">
+              Welcome to Connexa! We're excited to have you here.
+            </p>
+          </div>
+        )}
+        
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
