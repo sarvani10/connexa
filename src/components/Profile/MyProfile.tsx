@@ -27,27 +27,6 @@ const MyProfile: React.FC = () => {
     ).length;
   }, [getConnectedUsers, user?.id]);
 
-  // Calculate relative join date
-  const getRelativeJoinDate = (dateString: string | Date) => {
-    const joinDate = new Date(dateString);
-    const now = new Date();
-    const diffTime = Math.abs(now.getTime() - joinDate.getTime());
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    const diffMonths = Math.floor(diffDays / 30);
-    const diffYears = Math.floor(diffDays / 365);
-
-    if (diffDays === 0) return 'Today';
-    if (diffDays === 1) return 'Yesterday';
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
-    if (diffMonths === 1) return '1 month ago';
-    if (diffMonths < 12) return `${diffMonths} months ago`;
-    if (diffYears === 1) return '1 year ago';
-    return `${diffYears} years ago`;
-  };
-
-  const joinDate = user?.createdAt ? getRelativeJoinDate(user.createdAt) : 'Unknown';
-
   const handleSaveProfile = async () => {
     try {
       await updateProfile(editForm);
@@ -179,7 +158,7 @@ const MyProfile: React.FC = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="flex items-center">
               <FileText className="w-8 h-8 text-indigo-600 mr-3" />
@@ -196,18 +175,6 @@ const MyProfile: React.FC = () => {
               <div>
                 <div className="text-2xl font-bold text-gray-900">{userConnectionsCount}</div>
                 <div className="text-sm text-gray-600">Connections</div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <div className="flex items-center">
-              <Calendar className="w-8 h-8 text-indigo-600 mr-3" />
-              <div>
-                <div className="text-sm font-bold text-gray-900">
-                  {joinDate}
-                </div>
-                <div className="text-sm text-gray-600">Joined</div>
               </div>
             </div>
           </div>
