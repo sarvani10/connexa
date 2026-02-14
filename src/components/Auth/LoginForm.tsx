@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { Chrome, Users } from 'lucide-react';
+import { GoogleAuthService } from '../../services/googleAuthService';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -18,22 +19,13 @@ const LoginForm: React.FC = () => {
 
   const handleGoogleSignIn = async () => {
     try {
-      // Mock Google sign-in - in real app, this would integrate with Google OAuth
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      const mockGoogleUser = {
-        id: 'google-user-1',
-        username: 'google_user',
-        email: 'googleuser@gmail.com',
-        fullName: 'Google User',
-        bio: 'Signed in with Google',
-        isPrivate: false,
-        postsCount: 0,
-        connectionsCount: 0,
-        createdAt: new Date(),
-      };
-      await login(mockGoogleUser.email, 'google-password');
+      // Use real Google OAuth
+      const googleUser = await GoogleAuthService.getInstance().signInWithGoogle();
+      
+      // Log in with Google user data
+      await login(googleUser.email, 'google-oauth-password');
     } catch (error) {
-      setError('Google sign-in failed');
+      setError('Google sign-in failed. Please try again.');
     }
   };
 

@@ -4,6 +4,7 @@ import { ConnectionProvider } from './context/ConnectionContext';
 import { MessageProvider } from './context/MessageContext';
 import { PostProvider } from './context/PostContext';
 import LoginForm from './components/Auth/LoginForm';
+import GoogleCallback from './components/Auth/GoogleCallback';
 import ModernNavbar from './components/Navigation/ModernNavbar';
 import ModernHome from './components/Home/ModernHome';
 import ModernPostCreator from './components/Posts/ModernPostCreator';
@@ -16,6 +17,21 @@ const AppContent: React.FC = () => {
   const { isAuthenticated } = useAuth();
   const [currentView, setCurrentView] = React.useState<'home' | 'feed' | 'discover' | 'messages' | 'profile' | 'vent'>('home');
   const [showCreateModal, setShowCreateModal] = React.useState(false);
+  const [isCallback, setIsCallback] = React.useState(false);
+
+  // Check for Google OAuth callback
+  React.useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    
+    if (code && window.location.pathname === '/auth/google/callback') {
+      setIsCallback(true);
+    }
+  }, []);
+
+  if (isCallback) {
+    return <GoogleCallback />;
+  }
 
   if (!isAuthenticated) {
     return <LoginForm />;
