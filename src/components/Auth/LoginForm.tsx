@@ -53,7 +53,7 @@ const LoginForm: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden" 
          style={{
-           backgroundImage: 'url("https://picsum.photos/1600/900?random=1")',
+           backgroundImage: 'url("https://i.ibb.co/6PzL9yC/Whats-App-Image-2025-02-14-at-19-41-13.jpg")',
            backgroundSize: 'cover',
            backgroundPosition: 'center',
            backgroundRepeat: 'no-repeat',
