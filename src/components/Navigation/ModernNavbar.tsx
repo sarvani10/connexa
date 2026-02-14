@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useConnection } from '../../context/ConnectionContext';
 import { Home, Search, Plus, MessageCircle, User, Settings, LogOut, Heart, Mic } from 'lucide-react';
 import MoodSelector from './MoodSelector';
 import YouTubeBackground from './YouTubeBackground';
+import SettingsModal from '../Settings/SettingsModal';
 import '../../styles/MoodAnimations.css';
 
 interface ModernNavbarProps {
@@ -18,6 +19,7 @@ const ModernNavbar: React.FC<ModernNavbarProps> = ({ currentView, onViewChange, 
   const { user, logout } = useAuth();
   const { pendingRequests } = useConnection();
   const [currentMood, setCurrentMood] = React.useState<Mood>(null);
+  const [showSettings, setShowSettings] = useState(false);
 
   const handleMoodChange = (mood: Mood) => {
     setCurrentMood(mood);
@@ -121,7 +123,10 @@ const ModernNavbar: React.FC<ModernNavbarProps> = ({ currentView, onViewChange, 
                 
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <div className="p-2">
-                    <button className="w-full flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                    <button 
+                      onClick={() => setShowSettings(true)}
+                      className="w-full flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors"
+                    >
                       <Settings className="w-4 h-4 text-gray-600" />
                       <span className="text-sm text-gray-700">Settings</span>
                     </button>
@@ -149,6 +154,9 @@ const ModernNavbar: React.FC<ModernNavbarProps> = ({ currentView, onViewChange, 
           </div>
         </div>
       </div>
+
+      {/* Settings Modal */}
+      <SettingsModal isOpen={showSettings} onClose={() => setShowSettings(false)} />
     </>
   );
 };
