@@ -1,46 +1,117 @@
-# Getting Started with Create React App
+# Connexa - Social Connection Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern social connection platform built with React, TypeScript, and TailwindCSS that allows users to create profiles, connect with others, and message their connections.
+
+## Features
+
+- **User Authentication**: Secure login and registration system
+- **Profile Management**: Customizable profiles with private/public settings
+- **Connection System**: Send and accept connection requests
+- **Messaging**: Real-time messaging between connected users only
+- **User Discovery**: Search and discover new users with filters
+- **Modern UI**: Clean, responsive design with TailwindCSS
+
+## Key Functionality
+
+### User Profiles
+- Display user information including bio, posts count, and connections count
+- Private/public account settings
+- Profile customization options
+
+### Connection System
+- Send connection requests to other users
+- Accept or reject incoming requests
+- View connection status (pending, connected)
+- Only connected users can message each other
+
+### Messaging
+- Real-time chat interface
+- Message read receipts
+- Conversation history
+- Only available between connected users
+
+### User Discovery
+- Search users by name, username, or bio
+- Filter by privacy settings (public/private only)
+- Browse user profiles with connection options
+
+## Tech Stack
+
+- **Frontend**: React 18 with TypeScript
+- **Styling**: TailwindCSS
+- **Icons**: Lucide React
+- **State Management**: React Context API
+- **Build Tool**: Create React App
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd codeforconnection
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm start
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds the app for production to the `build` folder.
 
 ### `npm run eject`
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Demo Users
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+For testing purposes, you can use these pre-configured accounts:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Email**: john@example.com | **Password**: any
+- **Email**: jane@example.com | **Password**: any
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Project Structure
 
-## Learn More
+```
+src/
+├── components/
+│   ├── Auth/           # Authentication components
+│   ├── Messaging/      # Chat and messaging components
+│   ├── Navigation/     # Navigation and layout
+│   ├── Profile/        # User profile components
+│   └── Search/         # User discovery and search
+├── context/            # React Context providers
+├── types/              # TypeScript type definitions
+└── App.tsx            # Main application component
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.

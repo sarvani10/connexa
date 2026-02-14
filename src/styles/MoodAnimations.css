@@ -1,0 +1,444 @@
+/* Theme transitions */
+.mood-transition {
+  transition: all 0.5s ease-in-out !important;
+}
+
+/* Body styles for each mood */
+body.mood-sad {
+  background: linear-gradient(135deg, #1e3a8a 0%, #667eea 50%, #764ba2 100%) !important;
+  position: relative !important;
+}
+
+body.mood-angry {
+  background: #8b0000 !important;
+}
+
+body.mood-happy {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 50%, #fa709a 100%) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+body.mood-calm {
+  background: linear-gradient(135deg, #ffb3ba 0%, #bae1ff 50%, #ffb3ba 100%) !important;
+}
+
+/* Fix Connexa logo text visibility with solid colors */
+body.mood-sad .bg-clip-text {
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: #ffffff !important;
+  background-image: none !important;
+  text-shadow: 0 0 10px rgba(102, 126, 234, 0.8) !important;
+}
+
+body.mood-angry .bg-clip-text {
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: #ffffff !important;
+  background-image: none !important;
+  text-shadow: 0 0 10px rgba(139, 0, 0, 0.8) !important;
+}
+
+body.mood-happy .bg-clip-text {
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: #ffffff !important;
+  background-image: none !important;
+  text-shadow: 0 0 10px rgba(250, 112, 154, 0.8) !important;
+}
+
+body.mood-calm .bg-clip-text {
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  color: #ffffff !important;
+  background-image: none !important;
+  text-shadow: 0 0 10px rgba(255, 179, 186, 0.8) !important;
+}
+
+/* Sad UI Changes - Soft blue theme */
+body.mood-sad .bg-white {
+  background-color: #f0f4ff !important;
+  border-color: #667eea !important;
+}
+
+body.mood-sad .bg-gray-50 {
+  background-color: #e0e7ff !important;
+  border-color: #667eea !important;
+}
+
+body.mood-sad .text-gray-900 {
+  color: #1e3a8a !important;
+}
+
+body.mood-sad .text-gray-700 {
+  color: #1e3a8a !important;
+}
+
+body.mood-sad .text-gray-600 {
+  color: #667eea !important;
+}
+
+body.mood-sad .text-violet-600 {
+  color: #667eea !important;
+}
+
+body.mood-sad .text-purple-600 {
+  color: #667eea !important;
+}
+
+body.mood-sad .bg-gradient-to-r {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+}
+
+body.mood-sad .bg-gradient-to-br {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+}
+
+body.mood-sad .border-gray-100 {
+  border-color: #667eea !important;
+}
+
+body.mood-sad .border-gray-200 {
+  border-color: #667eea !important;
+}
+
+body.mood-sad .shadow-sm {
+  box-shadow: 0 1px 3px 0 rgba(102, 126, 234, 0.1) !important;
+}
+
+body.mood-sad .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(102, 126, 234, 0.1) !important;
+}
+
+body.mood-sad .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(102, 126, 234, 0.1) !important;
+}
+
+body.mood-sad .hover\:bg-gray-50:hover {
+  background-color: #e0e7ff !important;
+}
+
+body.mood-sad .hover\:bg-white:hover {
+  background-color: #f0f4ff !important;
+}
+
+/* Angry UI Changes - Dark red theme */
+body.mood-angry .bg-white {
+  background-color: #ffe4e1 !important;
+  border-color: #8b0000 !important;
+}
+
+body.mood-angry .bg-gray-50 {
+  background-color: #ffd4d4 !important;
+  border-color: #8b0000 !important;
+}
+
+body.mood-angry .text-gray-900 {
+  color: #4a0000 !important;
+}
+
+body.mood-angry .text-gray-700 {
+  color: #4a0000 !important;
+}
+
+body.mood-angry .text-gray-600 {
+  color: #8b0000 !important;
+}
+
+body.mood-angry .text-violet-600 {
+  color: #8b0000 !important;
+}
+
+body.mood-angry .text-purple-600 {
+  color: #8b0000 !important;
+}
+
+body.mood-angry .bg-gradient-to-r {
+  background: linear-gradient(135deg, #8b0000, #dc143c) !important;
+}
+
+body.mood-angry .bg-gradient-to-br {
+  background: linear-gradient(135deg, #8b0000, #dc143c) !important;
+}
+
+body.mood-angry .border-gray-100 {
+  border-color: #8b0000 !important;
+}
+
+body.mood-angry .border-gray-200 {
+  border-color: #8b0000 !important;
+}
+
+body.mood-angry .shadow-sm {
+  box-shadow: 0 1px 3px 0 rgba(139, 0, 0, 0.3) !important;
+}
+
+body.mood-angry .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(139, 0, 0, 0.3) !important;
+}
+
+body.mood-angry .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(139, 0, 0, 0.3) !important;
+}
+
+body.mood-angry .hover\:bg-gray-50:hover {
+  background-color: #ffd4d4 !important;
+}
+
+body.mood-angry .hover\:bg-white:hover {
+  background-color: #ffe4e1 !important;
+}
+
+/* Happy UI Changes - Bright yellow theme */
+body.mood-happy .bg-white {
+  background-color: #fffbeb !important;
+  border-color: #fa709a !important;
+}
+
+body.mood-happy .bg-gray-50 {
+  background-color: #fffbeb !important;
+  border-color: #fa709a !important;
+}
+
+body.mood-happy .text-gray-900 {
+  color: #92400e !important;
+}
+
+body.mood-happy .text-gray-700 {
+  color: #92400e !important;
+}
+
+body.mood-happy .text-gray-600 {
+  color: #fa709a !important;
+}
+
+body.mood-happy .text-violet-600 {
+  color: #fa709a !important;
+}
+
+body.mood-happy .text-purple-600 {
+  color: #fa709a !important;
+}
+
+body.mood-happy .bg-gradient-to-r {
+  background: linear-gradient(135deg, #fa709a, #fee140) !important;
+}
+
+body.mood-happy .bg-gradient-to-br {
+  background: linear-gradient(135deg, #fa709a, #fee140) !important;
+}
+
+body.mood-happy .border-gray-100 {
+  border-color: #fa709a !important;
+}
+
+body.mood-happy .border-gray-200 {
+  border-color: #fa709a !important;
+}
+
+body.mood-happy .shadow-sm {
+  box-shadow: 0 1px 3px 0 rgba(250, 112, 154, 0.15) !important;
+}
+
+body.mood-happy .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(250, 112, 154, 0.15) !important;
+}
+
+body.mood-happy .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(250, 112, 154, 0.15) !important;
+}
+
+body.mood-happy .hover\:bg-gray-50:hover {
+  background-color: #fffbeb !important;
+}
+
+body.mood-happy .hover\:bg-white:hover {
+  background-color: #fffbeb !important;
+}
+
+/* Calm UI Changes - Brighter soft green theme */
+body.mood-calm .bg-white {
+  background-color: #f0fdf4 !important;
+  border-color: #87ceeb !important;
+}
+
+body.mood-calm .bg-gray-50 {
+  background-color: #e6fffa !important;
+  border-color: #87ceeb !important;
+}
+
+body.mood-calm .text-gray-900 {
+  color: #0f5132 !important;
+}
+
+body.mood-calm .text-gray-700 {
+  color: #0f5132 !important;
+}
+
+body.mood-calm .text-gray-600 {
+  color: #87ceeb !important;
+}
+
+body.mood-calm .text-violet-600 {
+  color: #87ceeb !important;
+}
+
+body.mood-calm .text-purple-600 {
+  color: #87ceeb !important;
+}
+
+body.mood-calm .bg-gradient-to-r {
+  background: linear-gradient(135deg, #87ceeb, #98fb98) !important;
+}
+
+body.mood-calm .bg-gradient-to-br {
+  background: linear-gradient(135deg, #87ceeb, #98fb98) !important;
+}
+
+body.mood-calm .border-gray-100 {
+  border-color: #87ceeb !important;
+}
+
+body.mood-calm .border-gray-200 {
+  border-color: #87ceeb !important;
+}
+
+body.mood-calm .shadow-sm {
+  box-shadow: 0 1px 3px 0 rgba(135, 206, 235, 0.2) !important;
+}
+
+body.mood-calm .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(135, 206, 235, 0.2) !important;
+}
+
+body.mood-calm .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(135, 206, 235, 0.2) !important;
+}
+
+body.mood-calm .hover\:bg-gray-50:hover {
+  background-color: #e6fffa !important;
+}
+
+body.mood-calm .hover\:bg-white:hover {
+  background-color: #f0fdf4 !important;
+}
+
+/* Happy mood animations */
+@keyframes particles {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes particle {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0);
+    opacity: 0;
+  }
+}
+
+body.mood-happy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+body.mood-happy::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body.mood-happy::before {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+  animation: particles 3s linear infinite;
+}
+
+body.mood-happy::after {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+  animation: particles 4s linear infinite;
+}
+
+body.mood-happy .particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particle 3s linear infinite;
+}
+
+body.mood-happy .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+body.mood-happy .particle:nth-child(2) { left: 20%; animation-delay: 0.5s; }
+body.mood-happy .particle:nth-child(3) { left: 30%; animation-delay: 1s; }
+body.mood-happy .particle:nth-child(4) { left: 40%; animation-delay: 1.5s; }
+body.mood-happy .particle:nth-child(5) { left: 50%; animation-delay: 2s; }
+body.mood-happy .particle:nth-child(6) { left: 60%; animation-delay: 2.5s; }
+body.mood-happy .particle:nth-child(7) { left: 70%; animation-delay: 3s; }
+body.mood-happy .particle:nth-child(8) { left: 80%; animation-delay: 3.5s; }
+body.mood-happy .particle:nth-child(9) { left: 90%; animation-delay: 4s; }
+body.mood-happy .particle:nth-child(10) { left: 80%; animation-delay: 2s; }
+body.mappy .particle:nth-child(11) { left: 90%; animation-delay: 2.5s; }
+body.mappy .particle:nth-child(12) { left: 70%; animation-delay: 3s; }
+body.mappy .particle:nth-child(13) { left: 60%; animation-delay: 3.5s; }
+body.mappy .particle:nth-child(14) { left: 50%; animation-delay: 4s; }
+body.mappy .particle:nth-child(15) { left: 40%; animation-delay: 4.5s; }
+body.mappy .particle:nth-child(16) { left: 30%; animation-delay: 5s; }
+body.mappy .particle:nth-child(17) { left: 20%; animation-delay: 5.5s; }
+body.mappy .particle:nth-child(18) { left: 10%; animation-delay: 6s; }
+body.mappy .particle:nth-child(19) { left: 0%; animation-delay: 6.5s }
+body.mappy .particle:nth-child(20) { left: 90%; animation-delay: 7s; }
+body.mappy .particle:nth-child(21) { left: 80%; animation-delay: 7.5s; }
+body.mappy .particle:nth-child(22) { left: 70%; animation-delay: 8s; }
+body.mappy .particle:nth-child(23) { left: 60%; animation-delay: 8.5s; }
+body.mappy .particle:nth-child(24) { left: 50%; animation-delay: 9s; }
+body.mappy .particle:nth-child(25) { left: 40%; animation-delay: 9.5s; }
+body.mappy .particle:nth-child(26) { left: 30%; animation-delay: 10s; }
+body.mappy .particle:nth-child(27) { left: 20%; animation-delay: 10.5s; }
+body.mappy .particle:nth-child(28) { left: 10%; animation-delay: 11s; }
+body.mappy .particle:nth-child(29) { left: 0%; animation-delay: 11.5s }
+body.mappy .particle:nth-child(30) { left: 90%; animation-delay: 12s; }
+
+/* Particles for happy mood */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particle 3s linear infinite;
+}
+

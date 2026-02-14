@@ -1,0 +1,77 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "john@example.com",
+      "password": "password123",
+      "fullName": "John Doe",
+      "username": "john_doe",
+      "createdAt": "2024-01-15T10:00:00.000Z",
+      "isPrivate": false
+    },
+    {
+      "id": "2",
+      "email": "jane@example.com",
+      "password": "password123",
+      "fullName": "Jane Smith",
+      "username": "jane_smith",
+      "createdAt": "2024-01-16T14:30:00.000Z",
+      "isPrivate": true
+    },
+    {
+      "id": "3",
+      "email": "mike@example.com",
+      "password": "password123",
+      "fullName": "Mike Wilson",
+      "username": "mike_wilson",
+      "createdAt": "2024-01-17T09:15:00.000Z",
+      "isPrivate": false
+    }
+  ],
+  "posts": [
+    {
+      "id": "2e4b07f0-73d8-49f8-b05a-47c820e7a4f7",
+      "authorId": "1771064469927",
+      "content": "yjttuggjjh,",
+      "mediaType": "text",
+      "mediaUrl": "",
+      "createdAt": "2026-02-14T12:12:19.553Z",
+      "likesCount": 0,
+      "commentsCount": 0,
+      "isAnonymous": false
+    },
+    {
+      "id": "1",
+      "authorId": "1",
+      "content": "Just launched my new project! 🚀 Excited to share it with the community.",
+      "mediaType": "text",
+      "mediaUrl": "",
+      "createdAt": "2024-01-20T10:00:00.000Z",
+      "likesCount": 0,
+      "commentsCount": 0,
+      "isAnonymous": false
+    },
+    {
+      "id": "2",
+      "authorId": "2",
+      "content": "Feeling grateful today for all the support from this amazing community! 🙏",
+      "mediaType": "text",
+      "mediaUrl": "",
+      "createdAt": "2024-01-20T12:30:00.000Z",
+      "likesCount": 0,
+      "commentsCount": 0,
+      "isAnonymous": false
+    },
+    {
+      "id": "3",
+      "authorId": "3",
+      "content": "Anonymous post: Sometimes the best ideas come when you're not trying too hard.",
+      "mediaType": "text",
+      "mediaUrl": "",
+      "createdAt": "2024-01-20T15:45:00.000Z",
+      "likesCount": 0,
+      "commentsCount": 0,
+      "isAnonymous": true
+    }
+  ]
+}
