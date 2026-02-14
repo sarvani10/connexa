@@ -57,7 +57,8 @@ const LoginForm: React.FC = () => {
            backgroundSize: 'cover',
            backgroundPosition: 'center',
            backgroundRepeat: 'no-repeat',
-           backgroundColor: 'rgba(147, 51, 234, 0.05)'
+           backgroundColor: 'rgba(147, 51, 234, 0.05)',
+           filter: 'blur(3px)'
          }}>
       
       <div className="relative z-10 max-w-md w-full space-y-8">
