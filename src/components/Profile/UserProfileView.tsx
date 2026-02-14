@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useConnection } from '../../context/ConnectionContext';
 import { useMessage } from '../../context/MessageContext';
 import { usePost } from '../../context/PostContext';
-import { User as UserIcon, Mail, Lock, Globe, MessageCircle, Users, FileText } from 'lucide-react';
+import { User as UserIcon, Mail, Lock, Globe, MessageCircle, Users, FileText, Calendar } from 'lucide-react';
 import PostFeed from '../Posts/PostFeed';
 
 interface UserProfileViewProps {
@@ -30,6 +30,27 @@ const UserProfileView: React.FC<UserProfileViewProps> = ({ user, onBack }) => {
       userId === user.id || connectedUsers.includes(userId)
     ).length;
   }, [getConnectedUsers, user.id]);
+
+  // Calculate relative join date
+  const getRelativeJoinDate = (dateString: string | Date) => {
+    const joinDate = new Date(dateString);
+    const now = new Date();
+    const diffTime = Math.abs(now.getTime() - joinDate.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const diffMonths = Math.floor(diffDays / 30);
+    const diffYears = Math.floor(diffDays / 365);
+
+    if (diffDays === 0) return 'Today';
+    if (diffDays === 1) return 'Yesterday';
+    if (diffDays < 7) return `${diffDays} days ago`;
+    if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+    if (diffMonths === 1) return '1 month ago';
+    if (diffMonths < 12) return `${diffMonths} months ago`;
+    if (diffYears === 1) return '1 year ago';
+    return `${diffYears} years ago`;
+  };
+
+  const joinDate = user.createdAt ? getRelativeJoinDate(user.createdAt) : 'Unknown';
 
   const handleConnect = () => {
     sendConnectionRequest(user.id);
@@ -113,6 +134,19 @@ const UserProfileView: React.FC<UserProfileViewProps> = ({ user, onBack }) => {
                   <div className="text-2xl font-bold text-gray-900">{userConnectionsCount}</div>
                   <div className="text-sm text-gray-600">No. of Connections</div>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Joined Date Section */}
+          <div className="p-6 border-b border-gray-200">
+            <div className="flex items-center">
+              <Calendar className="w-8 h-8 text-indigo-600 mr-3" />
+              <div>
+                <div className="text-sm font-bold text-gray-900">
+                  {joinDate}
+                </div>
+                <div className="text-sm text-gray-600">Joined</div>
               </div>
             </div>
           </div>
