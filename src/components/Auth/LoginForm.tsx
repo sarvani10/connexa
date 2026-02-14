@@ -51,8 +51,16 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden" 
+         style={{
+           backgroundImage: 'url("/v953-mynt-59.jpg")',
+           backgroundSize: 'cover',
+           backgroundPosition: 'center',
+           backgroundRepeat: 'no-repeat',
+           backgroundColor: 'rgba(147, 51, 234, 0.05)'
+         }}>
+      
+      <div className="relative z-10 max-w-md w-full space-y-8">
         <div className="flex justify-center mb-8">
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg ring-2 ring-purple-500/20">
@@ -63,7 +71,7 @@ const LoginForm: React.FC = () => {
             </h1>
           </div>
         </div>
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-purple-100 p-8">
+        <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-purple-100 p-8">
           <h2 className="mt-6 text-center text-2xl font-semibold text-purple-800 mb-2">
             {isRegister ? 'Create your Connexa account' : 'Sign in to Connexa'}
           </h2>
