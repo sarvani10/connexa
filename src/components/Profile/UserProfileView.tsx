@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { User } from '../../types';
 import { useAuth } from '../../context/AuthContext';
 import { useConnection } from '../../context/ConnectionContext';
 import { useMessage } from '../../context/MessageContext';
+import { usePost } from '../../context/PostContext';
 import { User as UserIcon, Mail, Lock, Globe, MessageCircle, Users, FileText } from 'lucide-react';
 import PostFeed from '../Posts/PostFeed';
 
@@ -13,9 +14,22 @@ interface UserProfileViewProps {
 
 const UserProfileView: React.FC<UserProfileViewProps> = ({ user, onBack }) => {
   const { user: currentUser } = useAuth();
-  const { sendConnectionRequest, isConnected, isPendingConnection } = useConnection();
+  const { sendConnectionRequest, isConnected, isPendingConnection, getConnectedUsers } = useConnection();
   const { getMessages } = useMessage();
+  const { posts } = usePost();
   const [showMessageModal, setShowMessageModal] = useState(false);
+
+  // Calculate dynamic counts
+  const userPostsCount = useMemo(() => {
+    return posts.filter(post => post.authorId === user.id).length;
+  }, [posts, user.id]);
+
+  const userConnectionsCount = useMemo(() => {
+    const connectedUsers = getConnectedUsers();
+    return connectedUsers.filter(userId => 
+      userId === user.id || connectedUsers.includes(userId)
+    ).length;
+  }, [getConnectedUsers, user.id]);
 
   const handleConnect = () => {
     sendConnectionRequest(user.id);
@@ -89,14 +103,14 @@ const UserProfileView: React.FC<UserProfileViewProps> = ({ user, onBack }) => {
               <div className="flex items-center">
                 <FileText className="w-8 h-8 text-indigo-600 mr-3" />
                 <div>
-                  <div className="text-2xl font-bold text-gray-900">{user.postsCount}</div>
+                  <div className="text-2xl font-bold text-gray-900">{userPostsCount}</div>
                   <div className="text-sm text-gray-600">No. of posts</div>
                 </div>
               </div>
               <div className="flex items-center">
                 <Users className="w-8 h-8 text-indigo-600 mr-3" />
                 <div>
-                  <div className="text-2xl font-bold text-gray-900">{user.connectionsCount}</div>
+                  <div className="text-2xl font-bold text-gray-900">{userConnectionsCount}</div>
                   <div className="text-sm text-gray-600">No. of Connections</div>
                 </div>
               </div>

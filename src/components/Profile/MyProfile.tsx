@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useConnection } from '../../context/ConnectionContext';
+import { usePost } from '../../context/PostContext';
 import { Settings, Edit2, Globe, Lock, Mail, Calendar, Users, FileText } from 'lucide-react';
 
 const MyProfile: React.FC = () => {
   const { user, updateProfile } = useAuth();
-  const { pendingRequests, acceptConnectionRequest, rejectConnectionRequest } = useConnection();
+  const { pendingRequests, acceptConnectionRequest, rejectConnectionRequest, getConnectedUsers } = useConnection();
+  const { posts } = usePost();
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState({
     fullName: user?.fullName || '',
     bio: user?.bio || '',
     isPrivate: user?.isPrivate || false,
   });
+
+  // Calculate dynamic counts
+  const userPostsCount = useMemo(() => {
+    return posts.filter(post => post.authorId === user?.id).length;
+  }, [posts, user?.id]);
+
+  const userConnectionsCount = useMemo(() => {
+    const connectedUsers = getConnectedUsers();
+    return connectedUsers.filter(userId => 
+      userId === user?.id || connectedUsers.includes(userId)
+    ).length;
+  }, [getConnectedUsers, user?.id]);
 
   const handleSaveProfile = async () => {
     try {
@@ -149,7 +163,7 @@ const MyProfile: React.FC = () => {
             <div className="flex items-center">
               <FileText className="w-8 h-8 text-indigo-600 mr-3" />
               <div>
-                <div className="text-2xl font-bold text-gray-900">{user.postsCount}</div>
+                <div className="text-2xl font-bold text-gray-900">{userPostsCount}</div>
                 <div className="text-sm text-gray-600">Posts</div>
               </div>
             </div>
@@ -159,7 +173,7 @@ const MyProfile: React.FC = () => {
             <div className="flex items-center">
               <Users className="w-8 h-8 text-indigo-600 mr-3" />
               <div>
-                <div className="text-2xl font-bold text-gray-900">{user.connectionsCount}</div>
+                <div className="text-2xl font-bold text-gray-900">{userConnectionsCount}</div>
                 <div className="text-sm text-gray-600">Connections</div>
               </div>
             </div>

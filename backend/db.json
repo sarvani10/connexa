@@ -39,6 +39,17 @@
   ],
   "posts": [
     {
+      "id": "fbe1eefb-a2be-46cf-b88a-78d97e73e019",
+      "authorId": "4e0f386e-8e8d-41df-ac50-963485857197",
+      "content": "i feel sad because my marks are low.",
+      "mediaType": "text",
+      "mediaUrl": "",
+      "createdAt": "2026-02-14T13:24:30.737Z",
+      "likesCount": 0,
+      "commentsCount": 0,
+      "isAnonymous": true
+    },
+    {
       "id": "3fed5741-1f24-4aa0-8b89-6c8450fa56f5",
       "authorId": "4e0f386e-8e8d-41df-ac50-963485857197",
       "content": "hello",
