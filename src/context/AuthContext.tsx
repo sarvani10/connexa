@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
+import { API_ENDPOINTS } from '../config/api';
 import { User, AuthState } from '../types';
 
 interface AuthContextType extends AuthState {
@@ -88,7 +89,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const login = async (email: string, password: string) => {
     dispatch({ type: 'LOGIN_START' });
     try {
-      const response = await fetch('http://localhost:3001/api/auth/login', {
+      const response = await fetch(API_ENDPOINTS.LOGIN, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -115,7 +116,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const register = async (userData: Omit<User, 'id' | 'createdAt'> & { password: string }) => {
     dispatch({ type: 'LOGIN_START' });
     try {
-      const response = await fetch('http://localhost:3001/api/auth/signup', {
+      const response = await fetch(API_ENDPOINTS.SIGNUP, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
+import { API_ENDPOINTS } from '../config/api';
 import { Post } from '../types';
 import { useAuth } from './AuthContext';
 
@@ -77,7 +78,7 @@ export const PostProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/posts');
+        const response = await fetch(API_ENDPOINTS.POSTS);
         const backendPosts = await response.json();
         
         // Convert backend posts to frontend format
@@ -99,7 +100,7 @@ export const PostProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const createPost = async (content: string, mediaType: 'text' | 'image' | 'video', mediaUrl?: string, isAnonymous?: boolean) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:3001/api/posts', {
+      const response = await fetch(API_ENDPOINTS.POSTS, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
