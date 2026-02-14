@@ -7,7 +7,6 @@ import LoginForm from './components/Auth/LoginForm';
 import GoogleCallback from './components/Auth/GoogleCallback';
 import ModernNavbar from './components/Navigation/ModernNavbar';
 import ModernHome from './components/Home/ModernHome';
-import ModernPostCreator from './components/Posts/ModernPostCreator';
 import UserSearch from './components/Search/UserSearch';
 import MessageList from './components/Messaging/MessageList';
 import MyProfile from './components/Profile/MyProfile';
