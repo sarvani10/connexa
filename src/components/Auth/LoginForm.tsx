@@ -72,7 +72,7 @@ const LoginForm: React.FC = () => {
             </h1>
           </div>
         </div>
-        <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-purple-100 p-8">
+        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-purple-100 p-8">
           <h2 className="mt-6 text-center text-2xl font-semibold text-purple-800 mb-2">
             {isRegister ? 'Create your Connexa account' : 'Sign in to Connexa'}
           </h2>
