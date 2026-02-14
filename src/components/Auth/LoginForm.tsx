@@ -55,18 +55,21 @@ const LoginForm: React.FC = () => {
       <div className="max-w-md w-full space-y-8">
         <div className="flex justify-center mb-8">
           <div className="flex items-center space-x-3">
-            <Users className="w-10 h-10 text-purple-600" />
-            <h1 className="text-3xl font-bold text-purple-900">Connexa</h1>
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+              <Users className="w-7 h-7 text-white" />
+            </div>
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Connexa
+            </h1>
           </div>
         </div>
-        <div>
-          <h2 className="mt-6 text-center text-2xl font-semibold text-purple-800">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-purple-100 p-8">
+          <h2 className="mt-6 text-center text-2xl font-semibold text-purple-800 mb-2">
             {isRegister ? 'Create your Connexa account' : 'Sign in to Connexa'}
           </h2>
-          <p className="mt-2 text-center text-sm text-purple-600">
+          <p className="text-center text-sm text-purple-600 mb-8">
             {isRegister ? 'Join our community and start connecting' : 'Welcome back! Please sign in to continue'}
           </p>
-        </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
             <div className="bg-red-50 border border-red-300 text-red-800 px-4 py-3 rounded-lg">
@@ -77,23 +80,30 @@ const LoginForm: React.FC = () => {
           <div className="space-y-4">
             {!isRegister && (
               <>
-                <div>
+                <div className="group">
                   <label htmlFor="email" className="block text-sm font-medium text-purple-700 mb-2">
                     Email address
                   </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1 appearance-none relative block w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
-                    placeholder="Enter your email"
-                  />
+                  <div className="relative">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
+                      placeholder="Enter your email"
+                    />
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
+                <div className="group">
                   <label htmlFor="password" className="block text-sm font-medium text-purple-700 mb-2">
                     Password
                   </label>
@@ -105,9 +115,14 @@ const LoginForm: React.FC = () => {
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="mt-1 appearance-none relative block w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
+                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
                       placeholder="Enter your password"
                     />
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </>
@@ -115,82 +130,96 @@ const LoginForm: React.FC = () => {
 
             {isRegister && (
               <>
-                <div>
+                <div className="group">
                   <label htmlFor="fullName" className="block text-sm font-medium text-purple-700 mb-2">
                     Full Name
                   </label>
-                  <input
-                    id="fullName"
-                    name="fullName"
-                    type="text"
-                    required
-                    value={formData.fullName}
-                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="mt-1 appearance-none relative block w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
-                    placeholder="Enter your full name"
-                  />
+                  <div className="relative">
+                    <input
+                      id="fullName"
+                      name="fullName"
+                      type="text"
+                      required
+                      value={formData.fullName}
+                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
+                      placeholder="Enter your full name"
+                    />
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
+                <div className="group">
                   <label htmlFor="username" className="block text-sm font-medium text-purple-700 mb-2">
                     Username
                   </label>
-                  <input
-                    id="username"
-                    name="username"
-                    type="text"
-                    required
-                    value={formData.username}
-                    onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                    className="mt-1 appearance-none relative block w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
-                    placeholder="Choose a username"
-                  />
+                  <div className="relative">
+                    <input
+                      id="username"
+                      name="username"
+                      type="text"
+                      required
+                      value={formData.username}
+                      onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
+                      placeholder="Choose a username"
+                    />
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
+                <div className="group">
                   <label htmlFor="email" className="block text-sm font-medium text-purple-700 mb-2">
                     Email address
                   </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1 appearance-none relative block w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
-                    placeholder="Enter your email"
-                  />
+                  <div className="relative">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
+                      placeholder="Enter your email"
+                    />
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
-                <div>
+                <div className="group">
                   <label htmlFor="password" className="block text-sm font-medium text-purple-700 mb-2">
                     Password
                   </label>
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="mt-1 appearance-none relative block w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-200"
-                    placeholder="Create a password"
-                  />
-                </div>
-
-                <div className="flex items-center">
-                  <input
-                    id="isPrivate"
-                    name="isPrivate"
-                    type="checkbox"
-                    checked={formData.isPrivate}
-                    onChange={(e) => setFormData({ ...formData, isPrivate: e.target.checked })}
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                  />
-                  <label htmlFor="isPrivate" className="ml-2 block text-sm text-gray-900">
-                    Keep my account private
-                  </label>
+                  <div className="relative">
+                    <input
+                      id="password"
+                      name="password"
+                      type="password"
+                      required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="w-full px-4 py-3 border border-purple-300 rounded-lg shadow-sm placeholder-purple-500 text-purple-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 group-hover:border-purple-400"
+                      placeholder="Create a password"
+                    />
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                      <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </>
             )}
@@ -200,20 +229,30 @@ const LoginForm: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 transition duration-200"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-lg text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              {isLoading ? 'Processing...' : (isRegister ? 'Sign up' : 'Sign in')}
+              {isLoading ? (
+                <div className="flex items-center">
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Processing...
+                </div>
+              ) : (
+                <span>{isRegister ? 'Create Account' : 'Sign In'}</span>
+              )}
             </button>
           </div>
 
           {!isRegister && (
-            <div className="mt-4">
+            <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-purple-200" />
+                  <div className="w-full border-t border-purple-200"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-purple-50 text-purple-500">Or continue with</span>
+                  <span className="px-4 bg-white/80 backdrop-blur-sm text-purple-500 font-medium">Or continue with</span>
                 </div>
               </div>
 
@@ -221,25 +260,31 @@ const LoginForm: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleGoogleSignIn}
-                  className="w-full flex items-center justify-center px-4 py-3 border border-purple-300 rounded-lg shadow-sm text-sm font-medium text-purple-700 bg-white hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-200"
+                  className="group relative w-full flex items-center justify-center px-4 py-3 border border-purple-300 rounded-lg shadow-sm text-sm font-medium text-purple-700 bg-white/80 backdrop-blur-sm hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <Chrome className="w-5 h-5 mr-2" />
-                  Sign in with Google
+                  <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                  </svg>
+                  <span className="font-medium">Continue with Google</span>
                 </button>
               </div>
             </div>
           )}
 
-          <div className="text-center">
+          <div className="text-center mt-6">
             <button
               type="button"
               onClick={() => setIsRegister(!isRegister)}
-              className="text-purple-600 hover:text-purple-500 transition duration-200"
+              className="text-purple-600 hover:text-purple-500 font-medium transition duration-200 hover:underline"
             >
               {isRegister ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
             </button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   );
