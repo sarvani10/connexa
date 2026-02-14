@@ -57,8 +57,7 @@ const LoginForm: React.FC = () => {
            backgroundSize: 'cover',
            backgroundPosition: 'center',
            backgroundRepeat: 'no-repeat',
-           backgroundColor: 'rgba(147, 51, 234, 0.05)',
-           filter: 'blur(3px)'
+           backgroundColor: 'rgba(147, 51, 234, 0.05)'
          }}>
       
       <div className="relative z-10 max-w-md w-full space-y-8">
@@ -72,7 +71,7 @@ const LoginForm: React.FC = () => {
             </h1>
           </div>
         </div>
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-purple-100 p-8">
+        <div className="bg-white rounded-2xl shadow-xl border border-purple-100 p-8">
           <h2 className="mt-6 text-center text-2xl font-semibold text-purple-800 mb-2">
             {isRegister ? 'Create your Connexa account' : 'Sign in to Connexa'}
           </h2>
