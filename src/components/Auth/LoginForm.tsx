@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Chrome } from 'lucide-react';
+import { Chrome, Users } from 'lucide-react';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -61,9 +61,15 @@ const LoginForm: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
+        <div className="flex justify-center mb-6">
+          <div className="flex items-center space-x-3">
+            <Users className="w-10 h-10 text-indigo-600" />
+            <h1 className="text-3xl font-bold text-gray-900">Connexa</h1>
+          </div>
+        </div>
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            {isRegister ? 'Create your account' : 'Sign in to your account'}
+            {isRegister ? 'Create your Connexa account' : 'Sign in to Connexa'}
           </h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
